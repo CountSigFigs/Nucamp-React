@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function RenderPartner ({partner}){
 
-        if ({partner}){
+        if (partner){
             return(
                 <React.Fragment>
                     <Media object src={partner.image} alt={partner.name} width='150'/>

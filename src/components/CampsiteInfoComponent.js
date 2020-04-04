@@ -54,6 +54,7 @@ class CommentForm extends Component {
             comment: '',
             rating: 1,
             touched: {
+                rating: false,
                 author: false,
                 comment: false
             }
@@ -87,12 +88,13 @@ class CommentForm extends Component {
                                 <Control.select
                                     name='rating'
                                     model='.rating'
-                                    className='form-control'>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
+                                    className='form-control'
+                                    defaultValue='5'>
                                     <option>5</option>
+                                    <option>4</option>
+                                    <option>3</option>
+                                    <option>2</option>
+                                    <option>1</option>
                                 </Control.select>
                             </div>
                             <div className="form-group">

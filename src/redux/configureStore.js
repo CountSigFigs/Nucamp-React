@@ -5,6 +5,7 @@ import { Partners } from './partners';
 import { Promotions } from './promotions';
 
 
+
 export const ConfigureStore= () => {
     const store= createStore(
        combineReducers({

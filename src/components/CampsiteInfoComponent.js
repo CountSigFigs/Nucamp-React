@@ -4,16 +4,24 @@ import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Loading } from './LoadingComponent'
 import { baseUrl } from '../shared/baseUrl';
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
+
 
 function RenderCampsite({ campsite }) {
     return (
         <div className="col-md-5 m-1">
+        <FadeTransform 
+        in 
+        transformProps={{
+            exitTransform: 'scale(0.5) translateY(-50%)'
+        }}>
             <Card>
                 <CardImg top src={baseUrl + campsite.image} alt={campsite.name} />
                 <CardBody>
                     <CardText>{campsite.description}</CardText>
                 </CardBody>
             </Card>
+        </FadeTransform>
         </div>
     )
 }
@@ -23,15 +31,19 @@ function RenderComments({comments, postComment, campsiteId}){
         return (
             <div className="col-md-5 m-1">
                 <h4>Comments</h4>
+                <Stagger in>
                 {comments.map(comment => {
                     return (
-                     <div key={comment.id}>
-                        <p>{comment.text}<br />
-                        --{comment.author},
-                        </p>
-                    </div>
+                    <Fade in key={comment.id}>
+                        <div >
+                            <p>{comment.text}<br />
+                            --{comment.author},
+                            </p>
+                        </div>
+                    </Fade>
                     )
                 })}
+                </Stagger>
                 <CommentForm campsiteId={campsiteId} postComment={postComment} />
             </div>
         )
